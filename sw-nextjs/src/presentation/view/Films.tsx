@@ -1,7 +1,8 @@
 // Vista principal para películas
+"use client"; 
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useFilmsViewModel } from '../viewmodels/useFilmsViewModel';
 import { FilmCard } from '../components/FilmCard'
 import { Loading } from '../components/Loading'
@@ -15,7 +16,7 @@ function Films()
             <h1 className="title">Stars Wars</h1>
             <div className='characters'>
                 <button type="button" className='back-home'>
-                    <Link to="/">Home</Link>
+                    <Link href="/">Home</Link>
                 </button>
                 <h1>Películas</h1>
                 {isLoading ? (
@@ -23,7 +24,7 @@ function Films()
                 ) : (
                     <>
                         <button type="button" className='film-fav-button'>
-                            <Link to="/favorites-films">Películas Favoritas</Link>
+                            <Link href="/favorites-films">Películas Favoritas</Link>
                         </button>
                         <div className='container-characters'>
                             {films.map((film, index) => (

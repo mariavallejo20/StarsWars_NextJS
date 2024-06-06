@@ -1,28 +1,31 @@
 // Vista principal para personajes
+"use client";
 
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCharactersViewModel } from "../viewmodels/useCharactersViewModel";
 import { CharacterCard } from "../components/CharacterCard";
 import { Loading } from "../components/Loading";
 
 const Characters: React.FC = () => {
-    const { idFilm } = useParams<{ idFilm: string }>();
+    const pathname = usePathname();
+    const idFilm = pathname.split("/")[2]
     
     // Llamar al gancho siempre, pero manejar los valores devueltos según sea necesario
-    const { film, characters, isLoading } = useCharactersViewModel(idFilm || '');
+    const { film, characters, isLoading } = useCharactersViewModel(idFilm as string || '');
     
     return (
         <header className="App-header">
         <h1 className="title">Stars Wars</h1>
         <div className='characters'>
             <button type="button" className='back-home'>
-                <Link to="/">Home</Link>
+                <Link href="/">Home</Link>
             </button>
             <button type="button" className='back'>
-                <Link to="/films">Back</Link>
+                <Link href="/films">Back</Link>
             </button>
-            <h1>{film ? film.title : "Loading..."}</h1>
+            <h1>{film ? film.title : ""}</h1>
             <h2>Personajes</h2>
                 {isLoading ? <Loading /> : (
                     <div className='container-characters'>

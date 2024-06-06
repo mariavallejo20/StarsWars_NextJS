@@ -1,7 +1,7 @@
 // Componente para la información de una película
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Film } from '../../domain/entities/Film';
 
 interface FilmCardProps {
@@ -37,10 +37,10 @@ const FilmCard: React.FC<FilmCardProps> = ({film, isFavorite, onToggleFavorite, 
                 <span>Vehículos: </span>
                 <span>{film.vehicles.length}</span>
             </p>
-            <Link to={`/films/${index+1}/characters`}>
+            <Link href={`/films/${index+1}/characters`}>
                 <button type="button" className='films-button'>Personajes</button>
             </Link>
-            <Link to={`/films/${index+1}/planets`}>
+            <Link href={`/films/${index+1}/planets`}>
                 <button type="button" className='films-button'>Planetas</button>
             </Link>
         </div>
