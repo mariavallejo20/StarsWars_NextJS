@@ -1,1 +1,1 @@
-# StarsWars_NextJS
+# StarWars_NextJS
