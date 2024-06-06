@@ -1,13 +1,16 @@
 // Vista principal para personajes
+"use client";
 
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { usePlanetsViewModel } from "../viewmodels/usePlanetsViewModel";
 import { PlanetCard } from "../components/PlanetCard";
 import { Loading } from "../components/Loading";
 
 const Planets: React.FC = () => {
-    const { idFilm } = useParams<{ idFilm: string }>();
+    const pathname = usePathname();
+    const idFilm = pathname.split("/")[2]
     
     // Llamar al gancho siempre, pero manejar los valores devueltos según sea necesario
     const { film, planets, isLoading } = usePlanetsViewModel(idFilm || '');
@@ -17,10 +20,10 @@ const Planets: React.FC = () => {
         <h1 className="title">Stars Wars</h1>
         <div className='characters'>
             <button type="button" className='back-home'>
-                <Link to="/">Home</Link>
+                <Link href="/">Home</Link>
             </button>
             <button type="button" className='back'>
-                <Link to="/films">Back</Link>
+                <Link href="/films">Back</Link>
             </button>
             <h1>{film ? film.title : "Loading..."}</h1>
             <h2>Planetas</h2>

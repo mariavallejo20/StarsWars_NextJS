@@ -1,4 +1,5 @@
 // ViewModel que maneja el estado y la lógica de la vista de películas
+"use client";
 
 import { useState, useEffect } from 'react';
 import { Film } from '../../domain/entities/Film';

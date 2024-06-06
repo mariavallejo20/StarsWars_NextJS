@@ -1,6 +1,8 @@
 // src/presentation/views/FavoritesFilmsPage.tsx
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useFavoritesFilmsViewModel } from '../viewmodels/useFavoritesFilmsViewModel';
 import { FavoritesFilmCard } from '../components/FavoritesFilmsCard';
 
@@ -12,10 +14,10 @@ const FavoritesFilms: React.FC = () => {
         <header className="App-header">
             <h1 className="title">Star Wars</h1>
             <button type="button" className='back-home'>
-                <Link to="/">Home</Link>
+                <Link href="/">Home</Link>
             </button>
             <button type="button" className='back'>
-                <Link to="/films">Back</Link>
+                <Link href="/films">Back</Link>
             </button>
             <h1>Películas Favoritas</h1>
             <>
