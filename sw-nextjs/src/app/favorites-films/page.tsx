@@ -1,4 +1,4 @@
-import { FavoritesFilms } from "../presentation/view/FavoritesFilms";
+import { FavoritesFilms } from "../../presentation/view/FavoritesFilms";
 
 export default function FavoritesFilmsPage()
 {

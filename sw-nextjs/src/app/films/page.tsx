@@ -1,4 +1,4 @@
-import { Films } from "../presentation/view/Films";
+import { Films } from "../../presentation/view/Films";
 
 export default function FilmsPage()
 {

@@ -1,4 +1,4 @@
-import { saveToLocalStorage, getFromLocalStorage } from '../local/localStorageService';
+import { saveToLocalStorage, getFromLocalStorage } from './localStorageService';
 
 describe('localStorageService', () => {
     
